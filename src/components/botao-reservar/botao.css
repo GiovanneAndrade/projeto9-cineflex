@@ -1,0 +1,13 @@
+.botao{
+width: 83px;
+height: 43px;
+margin-left: 8px;
+background: #E8833A;
+border-radius: 3px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #FFFFFF;
+cursor: pointer;
+
+}

@@ -1,0 +1,98 @@
+.assento{
+display: grid;
+list-style: none;
+grid-template-columns: repeat(10, 1fr);
+column-gap: 0.2rem;
+row-gap: 1rem;
+margin-left: 24px;
+margin-right: 24px;
+}
+.escolher-assento{
+box-sizing: border-box;
+width: 26px;
+height: 26px;
+left: 24px;
+top: 158px;
+display: flex;
+background: #C3CFD9;
+border: 1px solid #808F9D;
+border-radius: 12px;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+}
+.status-assento{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-top: 18px;
+margin-left: 40px;
+margin-bottom: 24px;
+
+
+}
+.disponivel{
+box-sizing: border-box;
+width: 25px;
+height: 25px;
+background: #8DD7CF;
+border: 1px solid #1AAE9E;
+border-radius: 17px;
+
+}
+.indisponivel{
+box-sizing: border-box;
+width: 25px;
+height: 25px;
+background: #C3CFD9;
+border: 1px solid #7B8B99;
+border-radius: 17px;
+}
+.ocupado{
+box-sizing: border-box;
+width: 25px;
+height: 25px;
+background: #FBE192;
+border: 1px solid #F7C52B;
+border-radius: 17px;
+
+}
+.status-legenda{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.inputs input{
+  box-sizing: border-box;
+  width: 327px;
+  height: 51px;
+  background: #FFFFFF;
+  border: 1px solid #D5D5D5;
+  border-radius: 3px;
+}
+.assento-container{
+  display: flex;
+  flex-direction: column;
+}
+.inputs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 41px;
+}
+.inputs p{
+  margin-right: 179px;
+  margin-bottom: 3px;
+}
+.inputs .cpf{
+  margin-top: 10px;
+  margin-bottom: 3px;
+  margin-right: 191px;
+}
+::placeholder{
+  font-style: italic;
+  padding-left: 18px;
+  font-size: 18px;
+}

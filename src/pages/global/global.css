@@ -9,7 +9,8 @@ body{
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
-  background: #E5E5E5;
+  background: #E5E5E5; 
+ 
 }
 
 a {
@@ -20,6 +21,9 @@ a {
   height: 900px;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: #ffffff; 
+  overflow-y: auto;
 
 }
+.root::-webkit-scrollbar {
+  display: none;}

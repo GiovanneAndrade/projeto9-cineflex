@@ -1,8 +1,8 @@
 nav{
 
 width: 375px;
-height: 67px;
-left: 0px;
+min-height: 67px;
+
 top: 0px;
 display: flex;
 background: #C3CFD9;

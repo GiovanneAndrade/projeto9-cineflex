@@ -1,10 +1,10 @@
 import "./dias.css"
 
 
-export default function Dias ({dias}){
-  return (<>
+export default function Dias ({children}){
+  return (
   <div className="dias">
-    {dias}
+    {children}
   </div>
-  </>)
+ )
 }

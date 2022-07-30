@@ -18,31 +18,41 @@ export default function PaginaInicial (props){
 
   return (
   <>
-  <Top texto={"Selecione o filme"}/>
-  {filmes.map((item, index) =>(
-  <ArrayFilmes key={index}   imagem={item.posterURL} nome={item.nome}/>)
-)}
-  
+    <Top texto={"Selecione o filme"}/>
+    <div className="pagina-inicial-filmes">
+        <div className="lista-filmes">
+              {filmes.map((item ) =>(
+             <Link to={`/Horario/${item.id}`} >
+                <div className="filmes">
+                  <img src={item.posterURL} /> 
+                </div>
+              </Link> 
+              )
+              )}
+          
+        </div>
+    </div>
+    
   </>)
   
 }
 
-function ArrayFilmes(
-  {
-  imagem
-  }
-  ) {
+/* function ArrayFilmes({imagem}) {
   return(
-    <>
-      <div className="pagina-inicial-filmes">
-        <div className="lista-filmes">
-          <Link to="/Horario" >
-            <div className="filmes">
-               <img src={imagem} /> 
-            </div>
-          </Link> 
-        </div>
-      </div>
-    </>
+    <div className="filmes">
+       <img src={imagem} /> 
+    </div>
   )
 }
+
+function FilmesContainer ({}){
+  return (<>
+  <div className="pagina-inicial-filmes">
+    <div className="lista-filmes">
+      <Link to="/Horario" >
+       
+      </Link> 
+    </div>
+  </div>
+  </>)
+} */

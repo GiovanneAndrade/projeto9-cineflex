@@ -15,7 +15,7 @@ function App (){
     <BrowserRouter>
       <Routes>
         <Route path="/" element ={<PaginaInicial/>}/>
-        <Route path="/Horario" element ={<Horario/>}/>
+        <Route path="/Horario/:id" element ={<Horario/>}/>
         <Route path="/Assento" element ={<Assento/>}/>
         <Route path="/Sucesso" element ={<Sucesso/>}/>
       </Routes>

@@ -6,9 +6,10 @@ import Top from '../../components/top/Top'
 import Dias from "../../components/dias/Dias";
 import Botao from "../../components/botao-reservar/Botao";
 import Footer from "../../components/footer/Footer";
+import Assento from "../assento/Assento";
 
-export default function Horario (){
-const {id} = useParams()
+export default function Horario (props){
+const {id, title} = useParams()
 const [filmes, setFilmes] = useState([])
 const [foto, setFoto] = useState([])
  
@@ -23,12 +24,12 @@ fetch(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${id}/showtimes`)
     })
     
 
-},[id])
+},[id, title])
 
 
   return (<>
 
-
+<img src={props.nome} />
 <Top texto={"Selecione o horário"}/>
       {filmes.map((dado) => (
         <>
@@ -39,7 +40,7 @@ fetch(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${id}/showtimes`)
 
             <div className="botao-horario">
           {dado.showtimes.map((show) =>(
-              <Link to="/Assento">
+              <Link to={`/Assento/${show.id}`}>
                 <Botao botao={show.name}/> 
               </Link> 
           ))}
@@ -50,11 +51,10 @@ fetch(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${id}/showtimes`)
  
       
 
-<Footer>
-<div className="filmes-footer">
-    <img src={foto.posterURL}/>
-  </div>
-  <p> {foto.title}</p>
-</Footer>
+ 
+
+<Footer  foto={foto.posterURL} titulo={foto.title}/>
+
   </>)
 }
+

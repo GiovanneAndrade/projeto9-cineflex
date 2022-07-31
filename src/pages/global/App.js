@@ -14,9 +14,9 @@ function App (){
    
     <BrowserRouter>
       <Routes>
-        <Route path="/" element ={<PaginaInicial/>}/>
-        <Route path="/Horario/:id" element ={<Horario/>}/>
-        <Route path="/Assento" element ={<Assento/>}/>
+        <Route path="/" element ={<PaginaInicial />}/>
+        <Route path="/Horario/:id/:title" element ={<Horario />}/>
+        <Route path="/Assento/:id" element ={<Assento/>}/>
         <Route path="/Sucesso" element ={<Sucesso/>}/>
       </Routes>
 

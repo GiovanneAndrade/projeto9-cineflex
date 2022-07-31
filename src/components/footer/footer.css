@@ -24,5 +24,11 @@ display: flex;
 .filmes-footer img {
   width: 48px;
   height: 72px;
-  
+}
+.p-footer{
+margin-left: 15px;
+font-size: 22px;
+
+
+color: #293845;
 }

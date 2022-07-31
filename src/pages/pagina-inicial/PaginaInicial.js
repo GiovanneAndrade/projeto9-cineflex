@@ -6,7 +6,7 @@ import img from "./image/image 3.png"
 import Horario from "../horario/Horario"
 
 
-export default function PaginaInicial (props){
+export default function PaginaInicial (){
 
   const [filmes, setFilmes] = useState([])
 
@@ -15,14 +15,14 @@ export default function PaginaInicial (props){
     .then(res => res.json())
     .then(data => setFilmes(data))
   },[])
-
+ 
   return (
   <>
     <Top texto={"Selecione o filme"}/>
     <div className="pagina-inicial-filmes">
         <div className="lista-filmes">
               {filmes.map((item ) =>(
-             <Link to={`/Horario/${item.id}`} >
+             <Link to={`/Horario/${item.id}/${item.title}`} >
                 <div className="filmes">
                   <img src={item.posterURL} /> 
                 </div>
@@ -31,28 +31,10 @@ export default function PaginaInicial (props){
               )}
           
         </div>
+        
     </div>
     
   </>)
   
 }
 
-/* function ArrayFilmes({imagem}) {
-  return(
-    <div className="filmes">
-       <img src={imagem} /> 
-    </div>
-  )
-}
-
-function FilmesContainer ({}){
-  return (<>
-  <div className="pagina-inicial-filmes">
-    <div className="lista-filmes">
-      <Link to="/Horario" >
-       
-      </Link> 
-    </div>
-  </div>
-  </>)
-} */

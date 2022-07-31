@@ -11,6 +11,7 @@ export default function Sucesso (){
     <div className="resumo">
       <h1>
       Filme e sessão
+    
       </h1>
       <p>Nome do filme </p>
       <p>data do filme hora do filme </p> 

@@ -24,11 +24,11 @@ fetch(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${id}/showtimes`)
     })
     
 
-},[id, title])
+},[id])
 
 
   return (<>
-
+{title}
 <img src={props.nome} />
 <Top texto={"Selecione o horário"}/>
       {filmes.map((dado) => (

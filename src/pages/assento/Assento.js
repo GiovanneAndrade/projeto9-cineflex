@@ -6,6 +6,10 @@ import Top from '../../components/top/Top'
 import BotaoAssento from "../../components/botao-reservar-assento/BotaoAssento";
 import Footer from "../../components/footer/Footer";
 
+
+
+
+
 export default function Assento (){
 
   const {id} = useParams()
@@ -13,9 +17,8 @@ export default function Assento (){
   const [dia, setDia] = useState([])
   const [semana, setSemana] = useState([])
   const [hora, setHora] = useState([]) 
-  const [color, setColor] = useState('#C3CFD9')
-  const [colorId, setColorId] = useState([])
-  console.log(colorId)
+
+
     useEffect(() => {
   fetch(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${id}/seats`)
       .then(res => res.json())
@@ -31,9 +34,40 @@ export default function Assento (){
 const arrayteste =[
   semana.weekday, hora.name, dia.title
 ]
- 
-console.log(arrayteste)
- 
+ console.log(arrayteste)
+
+
+ let selecionados = []
+
+ function EscolherAssento({assento}) {
+   const [color, setColor] = useState('#C3CD9')
+
+   return (
+     <button 
+         className="escolher-assento" 
+         style={{ background: assento.isAvailable ? color :'#FBE192'}}  
+         onClick={() => {
+           if(assento.isAvailable === false) {
+             return alert ("Esse assento não está disponível")
+           }else{
+             setColor('#8DD7CF')
+             selecionados.push(assento.id)
+             
+           }
+           if (color === '#8DD7CF' ) {
+             setColor('#C3CFD9')
+
+             const remove = assento.id
+             selecionados = selecionados.filter((item) => {
+               return item !== remove
+             })
+           }  
+         }} 
+       >
+         <span>{assento.name}</span>
+       </button> 
+   )
+ }
  
 
   return (
@@ -44,24 +78,7 @@ console.log(arrayteste)
     <Top texto={"Selecione o(s) assento(s)"}/>
 
     <div  className="assento">
-    {assento.map((dado) =>  (
-      
-   <button className="escolher-assento" style={{ background: dado.isAvailable ? color :"#FBE192"}}  onClick={() => {
-      if(dado.isAvailable === false) {
-        return alert ("Esse assento não está disponível")
-      }else{
-        setColorId(dado.id)
-        setColor('#8DD7CF')
-      }
-      if (color === '#8DD7CF') {
-        setColorId("")
-        setColor('#C3CFD9')
-      }
-     }} 
-    >
-      <span>{dado.name}</span>
-   </button> 
-))}   
+      {assento.map((assento) => (<EscolherAssento assento={assento}/>))}
     </div>
 
 
@@ -85,20 +102,45 @@ console.log(arrayteste)
       
  </div>
 </div>
-  <div className="inputs">
-    <p>Nome do comprador:</p>
-    <input  placeholder="Digite seu nome..."   type="text"  />
-    <p className="cpf">CPF do comprador:</p>
-    <input placeholder="Digite seu CPF..."   type="number" />
-    <Link to="/Sucesso" ><BotaoAssento reservar={'reservar'}/></Link>
-  </div>
+  
    
-
+  <Formulario />
   
   </div>
-  
-
   <Footer weekday={semana.weekday} date={hora.name} foto={dia.posterURL} titulo={dia.title}/>
   </>
   )
+
+  function Formulario ({selecionados}) {
+    const [nome, setNome] = useState('')
+    const [cpf, setCpf] = useState('')
+  
+    function handleForm(e){
+      e.preventDefault();
+      
+      const dados = {
+        nome,
+        cpf,
+      }
+      console.log(dados)
+    }
+ 
+    
+    
+      return (
+        <form onSubmit={handleForm} className="inputs">
+          <p>Nome do comprador:</p>
+          <input  placeholder="Digite seu nome..."   type="text" required onChange={(e)=> setNome(e.target.value)}/>
+          <p className="cpf">CPF do comprador:</p>
+          <input placeholder="Digite seu CPF..."   type="number" required  onChange={(e)=> setCpf(e.target.value)}/>
+          {/* <Link to="/Sucesso" ><BotaoAssento reservar={'reservar'}/></Link>  */}
+           <button type="submit" className="botaoassento">enviar</button> 
+      </form>
+      )
+    }
+
+
 }
+
+
+

@@ -2,9 +2,9 @@ import "./botaoassento.css"
 
 export default function  BotaoAssento({reservar}){
   return(<>
-  <div className="botaoassento">
+  <button type="submit" className="botaoassento">
   {reservar}
-  </div>
+  </button>
   
   </>)
 }

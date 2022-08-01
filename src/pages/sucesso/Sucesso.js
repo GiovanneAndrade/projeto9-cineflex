@@ -25,7 +25,8 @@ export default function Sucesso (){
       <h1>
        Ingressos
       </h1>
-       {dadosAssento.state.array.map((item, index) =>(
+      
+         {dadosAssento.state.array.map((item, index) =>(
         <p key={index}>Assento {item}</p>
        )) }
     </div>

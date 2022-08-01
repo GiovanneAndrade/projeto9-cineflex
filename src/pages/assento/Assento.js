@@ -109,7 +109,7 @@ console.log(somenteAssento)
         <p>disponivel</p>
       </div>
 
-      <div className="status-legenda">
+      <div  className="status-legenda">
         <div className="ocupado"></div>  
         <p>indisponivel</p>
       </div>
@@ -119,14 +119,14 @@ console.log(somenteAssento)
 </div>
   
    
-  <Formulario arrayteste={arrayteste} selecionados={selecionados}/>
+  <Formulario />
   
   </div>
   <Footer weekday={semana.weekday} date={hora.name} foto={dia.posterURL} titulo={dia.title}/>
   </>
   )
 
-  function Formulario ({arrayteste, selecionados}) {
+  function Formulario () {
     const [nome, setNome] = useState('')
     const [cpf, setCpf] = useState('')
     let navigate = useNavigate()

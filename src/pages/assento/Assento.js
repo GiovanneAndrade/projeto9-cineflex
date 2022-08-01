@@ -12,7 +12,7 @@ import Footer from "../../components/footer/Footer";
 
 export default function Assento (){
 
-  const {id} = useParams()
+  const {idSessao} = useParams()
   const [assento, setAssento] = useState([])
   const [dia, setDia] = useState([])
   const [semana, setSemana] = useState([])
@@ -21,7 +21,7 @@ export default function Assento (){
 
 
     useEffect(() => {
-  fetch(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${id}/seats`)
+  fetch(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSessao}/seats`)
       .then(res => res.json())
       .then((data) => {
         setAssento(data.seats)
@@ -29,7 +29,7 @@ export default function Assento (){
         setSemana(data.day)
         setHora(data)
       })
-  },[id])
+  },[idSessao])
   let arrayteste =[]
   let somenteAssento = [ 
      semana.weekday,

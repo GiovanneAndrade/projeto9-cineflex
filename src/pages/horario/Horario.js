@@ -9,14 +9,14 @@ import Footer from "../../components/footer/Footer";
 import Assento from "../assento/Assento";
 
 export default function Horario (props){
-const {id, title} = useParams()
+const {idFilme, title} = useParams()
 const [filmes, setFilmes] = useState([])
 const [foto, setFoto] = useState([])
  
 
 
   useEffect(() => {
-fetch(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${id}/showtimes`)
+fetch(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${idFilme}/showtimes`)
     .then(res => res.json())
     .then((data) => {
       setFilmes(data.days)
@@ -24,7 +24,7 @@ fetch(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${id}/showtimes`)
     })
     
 
-},[id])
+},[idFilme])
 
 
   return (<>

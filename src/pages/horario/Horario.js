@@ -28,24 +28,25 @@ fetch(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${id}/showtimes`)
 
 
   return (<>
-{title}
+
 <img src={props.nome} />
 <Top texto={"Selecione o horário"}/>
-      {filmes.map((dado) => (
-        <>
-          <Dias>
-            <span>{dado.weekday}</span>
+      {filmes.map((dado, index) => (
+        <div key={index}>
+        
+          <Dias >
+            <span >{dado.weekday}</span>
             <span>{dado.date}</span>
           </Dias>
 
-            <div className="botao-horario">
-          {dado.showtimes.map((show) =>(
-              <Link to={`/Assento/${show.id}`}>
+            <div  className="botao-horario">
+          {dado.showtimes.map((show, index) =>(
+              <Link key={index} to={`/Assento/${show.id}`}>
                 <Botao botao={show.name}/> 
               </Link> 
           ))}
             </div>
-        </>
+        </div>
       ))} 
   
  

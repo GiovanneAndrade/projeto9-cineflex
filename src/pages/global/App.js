@@ -17,7 +17,7 @@ function App (){
         <Route path="/" element ={<PaginaInicial />}/>
         <Route path="/Horario/:id/:title" element ={<Horario />}/>
         <Route path="/Assento/:id" element ={<Assento/>}/>
-        <Route path="/Sucesso/:name" element ={<Sucesso/>}/>
+        <Route path="/Sucesso" element ={<Sucesso/>}/>
       </Routes>
 
 

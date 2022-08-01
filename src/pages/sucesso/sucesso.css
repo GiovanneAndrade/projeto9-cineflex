@@ -16,7 +16,7 @@ color: #247A6B;
 }
 .resumo{
   width: 100%;
-  height: 110px;
+  max-height: 500px;
 display: flex;
 margin-left: 29px;
 flex-direction: column;

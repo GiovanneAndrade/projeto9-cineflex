@@ -30,15 +30,21 @@ export default function Assento (){
         setHora(data)
       })
   },[id])
+  let arrayteste =[]
+  let somenteAssento = [ 
+     semana.weekday,
+      hora.name,
+      dia.title, 
+      semana.date]
+  
 
-
-let arrayteste =[
-  semana.weekday, hora.name, dia.title, assento.name
-]
- console.log(arrayteste)
+ 
+console.log(somenteAssento)
+ 
 
 
  let selecionados = []
+ 
 
  function EscolherAssento({assento}) {
    const [color, setColor] = useState('#C3CD9')
@@ -87,7 +93,7 @@ let arrayteste =[
     <Top texto={"Selecione o(s) assento(s)"}/>
 
     <div  className="assento">
-      {assento.map((assento) => (<EscolherAssento assento={assento}/>))}
+      {assento.map((assento, index) => (<EscolherAssento key={index} assento={assento}/>))}
     </div>
 
 
@@ -134,14 +140,24 @@ let arrayteste =[
       }
       
       console.log(selecionados)
+      
       const dados = {
         ids:selecionados,
         name: nome,
         cpf,
       }
-      
+      let dado = [nome, cpf]
       const enviarPost = {...[selecionados], ...dados}
-      navigate(`/Sucesso/${arrayteste.name}`)
+    /*   navigate(`/Sucesso/${semana.weekday}/${dados.name}/${dia.title}/${dados.cpf}/${arrayteste[1]}`) */
+    navigate("/Sucesso", {
+     state:{
+      array: arrayteste,
+      assento: somenteAssento,
+      dado: dado
+      }
+      
+    }
+    )
       fetch('https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many',{
         method: 'POST',
         body: JSON.stringify(enviarPost),
@@ -153,8 +169,8 @@ let arrayteste =[
       
       
       const sucesso = {...arrayteste, ...dados}
-      console.log(typeof(sucesso))
-    console.log(enviarPost)
+     
+   
     }
     
      
